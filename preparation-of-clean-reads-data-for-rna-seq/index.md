@@ -52,6 +52,8 @@ done
 
 Then check whether they are concatenated or not. 
 
+![](https://s2.loli.net/2022/04/08/2oSeQMiNkwmRdC1.png)
+
 ## 2. Use fastqc to perform quality checks
 
 Here is the homepage for fastqc and you can easily follow the instructions.
