@@ -3,8 +3,16 @@
         <title>All Posts - YY&#39;s homepage</title>
         <link>https://youeny.github.io/posts/</link>
         <description>All Posts | YY&#39;s homepage</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 06 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://youeny.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Preparation of clean read data for RNA-seq data analysis</title>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://youeny.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>2. Trim the read files using trim_galore</title>
+    <link>https://youeny.github.io/trim-the-read-files-using-trim_galore/</link>
+    <pubDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/trim-the-read-files-using-trim_galore/</guid>
+    <description><![CDATA[Summary  In this section, we are going to install trimgalore and perform trimming to improve the qualities of read files.   1. Why do we need to trim?  Quality trimming decreases the overall number of reads, but increases to the total and proportion of uniquely mapped reads. Thus, you get more useful data for downstream analyses. Too aggressive quality trimming can negatively impact downstream analysis.
+ 👨‍🏫 : Trimming will delete low-quality reads!]]></description>
+</item><item>
+    <title>1. Preparation of clean read data for RNA-seq data analysis</title>
     <link>https://youeny.github.io/preparation-of-clean-reads-data-for-rna-seq/</link>
     <pubDate>Wed, 06 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>

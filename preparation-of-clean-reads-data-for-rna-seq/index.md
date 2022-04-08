@@ -1,4 +1,4 @@
-# Preparation of clean read data for RNA-seq data analysis
+# 1. Preparation of clean read data for RNA-seq data analysis
 
 {{< admonition type=summary title="Summary" open=false >}}
 In this section, we are going to concatenate 4 read files from the same sample into 1 file and perform Fastqc, multiqc, and Trim_galore to check the quality of each read data.
