@@ -9,8 +9,22 @@
     <pubDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
     <guid>https://youeny.github.io/trim-the-read-files-using-trim_galore/</guid>
-    <description><![CDATA[Summary  In this section, we are going to install trimgalore and perform trimming to improve the qualities of read files.   1. Why do we need to trim?  Quality trimming decreases the overall number of reads, but increases to the total and proportion of uniquely mapped reads. Thus, you get more useful data for downstream analyses. Too aggressive quality trimming can negatively impact downstream analysis.
- 👨‍🏫 : Trimming will delete low-quality reads!]]></description>
+    <description><![CDATA[Summary  In this section, we are going to install trimgalore and trim the merged read files to improve the qualities of read files.   1. Why do we need to trim?  Quality trimming decreases the overall number of reads, but increases to the total and proportion of uniquely mapped reads. Thus, you get more useful data for downstream analyses. Too aggressive quality trimming can negatively impact downstream analysis.]]></description>
+</item><item>
+    <title>3. Mapping (STAR&#43;Qualimap&#43;featureCounts)</title>
+    <link>https://youeny.github.io/mapping-star-qualimap-featurecounts/</link>
+    <pubDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/mapping-star-qualimap-featurecounts/</guid>
+    <description><![CDATA[Summary  In this section, we are going to map the read files to genome index using STAR, perform QC with Qualimap, and obtain count data using featureCounts.   1. installation of STAR  Pl ease refer to this official manual
+ 1 2 3 4 5 6 7 8 9 10  # Get latest STAR source from releases wget https://github.com/alexdobin/STAR/archive/2.7.9a.tar.gz tar -xzf 2.7.9a.tar.gz cd STAR-2.7.9a # Compile under Linux cd /STAR-2.]]></description>
+</item><item>
+    <title>Structure analysis (Cryo-EM)</title>
+    <link>https://youeny.github.io/structure-analysis-cryo-em/</link>
+    <pubDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/structure-analysis-cryo-em/</guid>
+    <description><![CDATA[Summary     “It is very easy to answer many fundamental biological questions; you just look at the thing!”]]></description>
 </item><item>
     <title>1. Preparation of clean read data for RNA-seq data analysis</title>
     <link>https://youeny.github.io/preparation-of-clean-reads-data-for-rna-seq/</link>

@@ -3,7 +3,7 @@
 
 {{< admonition type=summary title="Summary" open=false >}}
 
-In this section, we are going to install `trimgalore` and perform trimming to improve the qualities of read files.
+In this section, we are going to install `trimgalore` and trim the merged read files to improve the qualities of read files.
 
 {{< /admonition >}}
 
@@ -11,11 +11,11 @@ In this section, we are going to install `trimgalore` and perform trimming to im
 
 >   Quality trimming decreases the overall number of reads, but increases to the total and proportion of uniquely mapped reads. Thus, you get more useful data for downstream analyses. Too aggressive quality trimming can negatively impact downstream analysis. 
 
-:man_teacher: : Trimming will delete low-quality reads!!! We must use trimming before mapping!!!
+:man_teacher: : Trimming will delete low-quality reads!!! We must trim before mapping!!!
 
-:woman_teacher: : Trimming may delete some important reads!!! Even trash reads is needed for mapping!!!
+:woman_teacher: : Trimming may delete some important reads!!! Even trash reads are needed for mapping!!!
 
-:bulb: **So, whether to trim or not depends on your project and the results of your fastqc results!!!**
+:bulb: **So, whether to trim or not depends on your project and the results of your `fastqc` results!!!**
 
 ## 2. Evaluate the quality of reads using `Fastqc`
 
@@ -65,7 +65,7 @@ do
 done
 ```
 
-### 4. Run `fastqc` & `multiqc` again 
+## 4. Run `fastqc` & `multiqc` again 
 
 After trimming, we need to check the quality again.
 
