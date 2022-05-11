@@ -1,4 +1,4 @@
-# 3. Mapping (STAR+Qualimap+featureCounts)
+# RNA-seq protocol(3) Mapping (STAR+Qualimap+featureCounts)
 
 {{< admonition type=summary title="Summary" open=false >}}
 In this section, we are going to map the read files to genome index using STAR, perform QC with Qualimap, and obtain count data using featureCounts.
@@ -70,7 +70,9 @@ Dec 07 18:10:18 ..... started sorting BAM
 Dec 07 18:11:13 ..... finished successfully
 ```
 
-The log file provides information on reads that 1) mapped uniquely, 2) reads that mapped to mutliple locations and 3) reads that are unmapped. Additionally, we get details on splicing, insertion and deletion. From this file the most informative statistics include the **mapping rate and the number of multimappers**.
+The `log.final.out` file provides information on reads that 1) mapped uniquely, 2) reads that mapped to mutliple locations and 3) reads that are unmapped. Additionally, we get details on splicing, insertion and deletion. From this file the most informative statistics include the **mapping rate and the number of multimappers**.
+
+<img src="https://s2.loli.net/2022/05/11/8prfhg9vVDxywFE.png" style="zoom:50%;" />
 
 ## 4. QC of mapping using Qualimap
 
@@ -85,7 +87,7 @@ Check how many percentages of reads are mapped :
 
 Check how many percentages of the reads are exonic: 
 
-
+<img src="https://s2.loli.net/2022/05/11/mlnKTGSBsNC9gtz.png" style="zoom:50%;" />
 
 ## 5. Obtain counts data using featureCounts
 
@@ -93,9 +95,7 @@ Check how many percentages of the reads are exonic:
 /home/akif/Downloads/subread-2.0.3-source/bin/featureCounts -s 2 -p -t gene -g gene_id -a /dir/annotation.gtf -o counts.txt *.bam
 ```
 
-
-
-Delete the columns which are not necessary. 
+Delete the columns (2-6) which are not necessary. 
 
 ```shell
 cut -f1,7-100 ${WORKDIR}/count/count.txt > ${WORKDIR}/count/featurecounts.txt

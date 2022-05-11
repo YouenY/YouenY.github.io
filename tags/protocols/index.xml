@@ -4,12 +4,26 @@
         <link>https://youeny.github.io/tags/protocols/</link>
         <description>Protocols - Tag - YY&#39;s homepage</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://youeny.github.io/tags/protocols/" rel="self" type="application/rss+xml" /><item>
-    <title>3. Mapping (STAR&#43;Qualimap&#43;featureCounts)</title>
+    <title>RNA-seq protocol(2) Trim the read files using trim_galore</title>
+    <link>https://youeny.github.io/trim-the-read-files-using-trim_galore/</link>
+    <pubDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/trim-the-read-files-using-trim_galore/</guid>
+    <description><![CDATA[Summary  In this section, we are going to install trimgalore and trim the merged read files to improve the qualities of read files.   1. Why do we need to trim?  Quality trimming decreases the overall number of reads, but increases to the total and proportion of uniquely mapped reads. Thus, you get more useful data for downstream analyses. Too aggressive quality trimming can negatively impact downstream analysis.]]></description>
+</item><item>
+    <title>RNA-seq protocol(3) Mapping (STAR&#43;Qualimap&#43;featureCounts)</title>
     <link>https://youeny.github.io/mapping-star-qualimap-featurecounts/</link>
     <pubDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
     <guid>https://youeny.github.io/mapping-star-qualimap-featurecounts/</guid>
     <description><![CDATA[Summary  In this section, we are going to map the read files to genome index using STAR, perform QC with Qualimap, and obtain count data using featureCounts.   1. installation of STAR  Pl ease refer to this official manual
  1 2 3 4 5 6 7 8 9 10  # Get latest STAR source from releases wget https://github.com/alexdobin/STAR/archive/2.7.9a.tar.gz tar -xzf 2.7.9a.tar.gz cd STAR-2.7.9a # Compile under Linux cd /STAR-2.]]></description>
+</item><item>
+    <title>RNA-seq protocol(1) Preparation of clean read data for RNA-seq data analysis</title>
+    <link>https://youeny.github.io/preparation-of-clean-reads-data-for-rna-seq/</link>
+    <pubDate>Wed, 06 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/preparation-of-clean-reads-data-for-rna-seq/</guid>
+    <description><![CDATA[Summary  In this section, we are going to concatenate 4 read files from the same sample into 1 file and perform Fastqc, multiqc, and Trim_galore to check the quality of each read data.   1     1. Concatenation of raw read files First of all, the operating system (OS) I used is Linux Ubuntu 20.04.4. And what I have in my hand are 64 raw read fastq.]]></description>
 </item></channel>
 </rss>

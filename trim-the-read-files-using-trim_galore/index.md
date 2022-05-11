@@ -1,4 +1,4 @@
-# 2. Trim the read files using trim_galore
+# RNA-seq protocol(2) Trim the read files using trim_galore
 
 
 {{< admonition type=summary title="Summary" open=false >}}

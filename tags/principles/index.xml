@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Principles - Tag - YY&#39;s homepage</title>
+        <link>https://youeny.github.io/tags/principles/</link>
+        <description>Principles - Tag - YY&#39;s homepage</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 May 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://youeny.github.io/tags/principles/" rel="self" type="application/rss+xml" /><item>
+    <title>The basic principle of DESeq2 (1)</title>
+    <link>https://youeny.github.io/the-basic-principle-of-deseq2/</link>
+    <pubDate>Wed, 11 May 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/the-basic-principle-of-deseq2/</guid>
+    <description><![CDATA[How DESeq2 calculated DEGs? DESeq2 tool was published in 2014 and it has been cited more than 30,000 times. (reference)
+ DESeq2 is a method for differential analysis of count data, using shrinkage estimation for dispersions and fold changes to improve the stability and interpretability of estimates.
+ Library normalization by DEGs RPKM, FPKM, TPM&hellip;&hellip; Those are methods for adjusting for the difference in overall read counts among libraries.
+However, DESeq2 does not use those methods!]]></description>
+</item></channel>
+</rss>
