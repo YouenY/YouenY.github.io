@@ -1,13 +1,13 @@
 # The basic principle of DESeq2 (1)
 
 
-## How DESeq2 calculated DEGs?
+## How DESeq2 calculate DEGs?
 
 DESeq2 tool was published in 2014 and it has been cited more than 30,000 times. ([reference](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0550-8))
 
 > DESeq2 is a method for differential analysis of count data, using shrinkage estimation for dispersions and fold changes to improve the stability and interpretability of estimates. 
 
-### Library normalization by DEGs
+### Library normalization by DEGs (median of ratios method)
 
 RPKM, FPKM, TPM...... Those are methods for adjusting for the difference in overall read counts among libraries. 
 
@@ -19,83 +19,70 @@ Why? :thinking: DESeq2 wanted its normalization to handle those 2 problems:
 
 (2) Differences in **library composition** (liver vs spleen)
 
-#### Step 1 Take the log of all the values
+To normalize for sequencing depth and RNA composition, DESeq2 uses the median of ratios method. On the user-end there is only one step, but on the back-end there are multiple steps involved, as described below.
+
+#### Step 1 Creates a pseudo-reference sample (row-wise geometric mean)
 
 If we get such count data
 
-| Gene ID | Sample1 | Sample2 | Sample3 |
-| ------- | ------- | ------- | ------- |
-| Gene1   | A       | B       | C       |
-| Gene2   | D       | E       | 0       |
-| Gene3   | X       | Y       | Z       |
+| Gene ID | Sample1 | Sample2 | pseudo-reference              |
+| ------- | ------- | ------- | ----------------------------- |
+| 1       | 1489    | 906     | sqrt(1489 * 906) = **1161.5** |
+| 2       | 22      | 13      | sqrt(22 * 13) = **17.7**      |
+| ...     | ...     | ...     | ...                           |
 
-We than calculated `ln(count data)`(log base e), and we will get a new table.
+We then calculated `pseudo-reference`, for each gene, a pseudo-reference sample is created that is equal to the geometric mean across all samples.
 
-| Gene ID | Sample1 | Sample2 | Sample3 |
-| ------- | ------- | ------- | ------- |
-| Gene1   | ln(A)   | ln(B)   | ln(C)   |
-| Gene2   | ln(D)   | ln(E)   | error   |
-| Gene3   | ln(X)   | ln(Y)   | ln(Z)   |
-
+pseudo-reference=
+$$
+n\sqrt{A*B*C*...}
+$$
+For example, pseudo-reference for Gene 1 is 
+$$
+\sqrt{1489*906}
+$$
 {{< admonition type=notice title="Notice" open=false >}}
 
-Notice: if count data=0, `In(0) = -inf`. DEseq will output `NA`
+Notice: if there is count data=0, pseudo-reference=0 . No matter how other count is. 
 
 {{< /admonition >}}
 
-#### Step 2 Average each row
+#### Step 2 Calculates ratio of each sample to the reference
 
-| Gene ID | Average of log value  |
-| ------- | --------------------- |
-| Gene 1  | [ln(A)+ln(B)+ln(C)]/3 |
-| Gene 2  | error                 |
-| Gene 3  | [ln(X)+ln(Y)+ln(Z)]/3 |
+| Gene ID | Sample1 | Sample2 | pseudo-reference | **ratio of sample1/ref** | **ratio of sample2/ref** |
+| ------- | ------- | ------- | ---------------- | ------------------------ | ------------------------ |
+| Gene 1  | 1489    | 906     | 1161.5           | 1489/1161.5 = **1.28**   | 906/1161.5 = **0.78**    |
+| Gene 2  | 22      | 13      | 16.9             | 22/16.9 = **1.30**       | 13/16.9 = **0.77**       |
+| ...     | ...     | ...     | ...              |                          |                          |
 
-Which means that only one count=0 will lead to error in the average. 
+#### Step 3 Calculate the normalization factor for each sample (size factor)
 
-#### Step 3 Filter out genes with error
+The median value (column-wise for the above table) of all ratios for a given sample is taken as the normalization factor (size factor) for that sample, as calculated below. 
 
-| Gene ID | Average of log value  |
-| ------- | --------------------- |
-| Gene 1  | [ln(A)+ln(B)+ln(C)]/3 |
-| Gene 3  | [ln(X)+ln(Y)+ln(Z)]/3 |
+```
+normalization_factor_sample1 <- median(c(1.28, 1.3, ...))
+normalization_factor_sample2 <- median(c(0.78, 0.77, ...))
+```
 
-Gene 2 is removed!
+The median of ratios method makes the assumption that not ALL genes are differentially expressed; therefore, the normalization factors should account for sequencing depth and RNA composition of the sample (large outlier genes will not represent the median ratio values). **This method is robust to imbalance in up-/down-regulation and large numbers of differentially expressed genes.**
 
-#### Step 4 Subtract the average log value from the log(counts)
+{{< admonition type=notice title="Notice" open=false >}}
 
-| Gene ID | Sample 1                    | Sample 2                    | Sample 3                    |
-| ------- | --------------------------- | --------------------------- | --------------------------- |
-| Gene 1  | ln(A)-[ln(A)+ln(B)+ln(C)]/3 | ln(B)-[ln(A)+ln(B)+ln(C)]/3 | ln(C)-[ln(A)+ln(B)+ln(C)]/3 |
-| Gene 2  | ln(X)-[ln(X)+ln(Y)+ln(Z)]/3 | ln(Y)-[ln(X)+ln(Y)+ln(Z)]/3 | ln(Z)-[ln(X)+ln(Y)+ln(Z)]/3 |
+Notice: usually size factors are around 1
 
-#### Step 5 Calculate the median of the ratios for each sample
+{{< /admonition >}}
 
-|        | Sample 1                                                    | Sample 2                                                    | Sample 3                                                    |
-| ------ | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| median | (ln(A)-[ln(A)+ln(B)+ln(C)]/3+ln(X)-[ln(X)+ln(Y)+ln(Z)]/3)/2 | (ln(B)-[ln(A)+ln(B)+ln(C)]/3+ln(Y)-[ln(X)+ln(Y)+ln(Z)]/3)/2 | (ln(C)-[ln(A)+ln(B)+ln(C)]/3+ln(Z)-[ln(X)+ln(Y)+ln(Z)]/3)/2 |
+#### Step 4  Calculate the normalized count values using the normalization factor
 
-#### Step 6 Calculate the scaling factors (SF)
+Normalized Counts
 
-|      | Sample 1          | Sample 2          | Sample 3          |
-| ---- | ----------------- | ----------------- | ----------------- |
-| SF   | e^median(sample1) | e^median(sample2) | e^median(sample3) |
+| Gene ID | Sample1                  | Sample2                  |
+| ------- | ------------------------ | ------------------------ |
+| Gene 1  | 1489 / 1.3 = **1145.39** | 906 / 0.77 = **1176.62** |
+| Gene 2  | 22 / 1.3 = **16.92**     | 13 / 0.77 = **16.88**    |
+| …       | …                        | …                        |
 
-#### Step 7 Divide the original read counts by the scaling factors
-
-We will get scaled read counts!
-
-| Gene ID | Sample1       | Sample2       | Sample3       |
-| ------- | ------------- | ------------- | ------------- |
-| Gene1   | A/SF(Sample1) | B/SF(Sample2) | C/SF(Sample3) |
-| Gene2   | D/SF(Sample1) | E/SF(Sample2) | 0/SF(Sample3) |
-| Gene3   | X/SF(Sample1) | Y/SF(Sample2) | Z/SF(Sample3) |
-
-**Logs** eliminate all genes that are only transcribed in one sample type.
-
-They also help smooth over outlier read counts.
-
-The **median** further downplays genes that soak up a lot of the reads, putting more emphasis on moderately expressed gene.
+The **median** further downplays genes that soak up a lot of the reads, putting more emphasis on moderately expressed genes.
 
 
 

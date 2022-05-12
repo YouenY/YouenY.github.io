@@ -9,9 +9,8 @@
     <pubDate>Wed, 11 May 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
     <guid>https://youeny.github.io/the-basic-principle-of-deseq2/</guid>
-    <description><![CDATA[How DESeq2 calculated DEGs? DESeq2 tool was published in 2014 and it has been cited more than 30,000 times. (reference)
+    <description><![CDATA[How DESeq2 calculate DEGs? DESeq2 tool was published in 2014 and it has been cited more than 30,000 times. (reference)
  DESeq2 is a method for differential analysis of count data, using shrinkage estimation for dispersions and fold changes to improve the stability and interpretability of estimates.
- Library normalization by DEGs RPKM, FPKM, TPM&hellip;&hellip; Those are methods for adjusting for the difference in overall read counts among libraries.
-However, DESeq2 does not use those methods!]]></description>
+ Library normalization by DEGs (median of ratios method) RPKM, FPKM, TPM&hellip;&hellip; Those are methods for adjusting for the difference in overall read counts among libraries.]]></description>
 </item></channel>
 </rss>
