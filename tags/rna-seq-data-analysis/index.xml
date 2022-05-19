@@ -3,8 +3,24 @@
         <title>RNA-seq data analysis - Tag - YY&#39;s homepage</title>
         <link>https://youeny.github.io/tags/rna-seq-data-analysis/</link>
         <description>RNA-seq data analysis - Tag - YY&#39;s homepage</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 May 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://youeny.github.io/tags/rna-seq-data-analysis/" rel="self" type="application/rss+xml" /><item>
-    <title>The basic principle of DESeq2 (1)</title>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 17 May 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://youeny.github.io/tags/rna-seq-data-analysis/" rel="self" type="application/rss+xml" /><item>
+    <title>Drawing Volcano plot (1)</title>
+    <link>https://youeny.github.io/2022-05-17-drawing-volcano-plot/</link>
+    <pubDate>Tue, 17 May 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/2022-05-17-drawing-volcano-plot/</guid>
+    <description><![CDATA[Here is the final result of this article:
+This volcano plot contains:
+ up-regulated/not-significant/down-regulated genes which are highlighted in red and blue lines show log2FoldChange = -1/1, adjusted p value = 0.05 Top 10 genes names beside their points which is greatly changed  Let&rsquo;s start!]]></description>
+</item><item>
+    <title>What is the RNA-seq analysis?</title>
+    <link>https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/</link>
+    <pubDate>Mon, 16 May 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/</guid>
+    <description><![CDATA[Overall description of RNA-Seq The transcriptome has a high degree of complexity including multiple types of coding and non-coding RNA species, like mRNA, pre-mRNA, microRNA, and long ncRNA. To understand how the expression of a gene affects translation to proteins, messenger RNA (mRNA) molecules were the most frequently studied RNA species. Besides coding RNA, noncoding RNA molecules also play significant roles in cellular functions: Ribosomal RNAs and transfer RNAs are involved in mRNA translation.]]></description>
+</item><item>
+    <title>The basic principle of DESeq2</title>
     <link>https://youeny.github.io/the-basic-principle-of-deseq2/</link>
     <pubDate>Wed, 11 May 2022 00:00:00 &#43;0000</pubDate>
     <author>Author</author>

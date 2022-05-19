@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>What is the RNA-seq analysis? - YY&#39;s homepage</title><meta name="Description" content="In this section, we are going to learn about what is RNA-seq analysis, and the basic workflow of an RNA-seq analysis"><meta property="og:title" content="What is the RNA-seq analysis?" />
+<meta property="og:description" content="In this section, we are going to learn about what is RNA-seq analysis, and the basic workflow of an RNA-seq analysis" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" /><meta property="og:image" content="https://youeny.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-16T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://youeny.github.io/logo.png"/>
+
+<meta name="twitter:title" content="What is the RNA-seq analysis?"/>
+<meta name="twitter:description" content="In this section, we are going to learn about what is RNA-seq analysis, and the basic workflow of an RNA-seq analysis"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" /><link rel="prev" href="https://youeny.github.io/the-basic-principle-of-deseq2/" /><link rel="next" href="https://youeny.github.io/2022-05-17-drawing-volcano-plot/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "What is the RNA-seq analysis?",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/youeny.github.io\/2022-05-16-what-is-the-rna-seqribo-seq-analysis\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/youeny.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "RNA-seq data analysis, Ribo-seq analysis","wordcount":  965 ,
+        "url": "https:\/\/youeny.github.io\/2022-05-16-what-is-the-rna-seqribo-seq-analysis\/","datePublished": "2022-05-16T00:00:00+00:00","dateModified": "2022-05-16T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/youeny.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Yao"
+            },"description": "In this section, we are going to learn about what is RNA-seq analysis, and the basic workflow of an RNA-seq analysis"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="YY&#39;s homepage"><span class="header-title-pre"><i class='fas fa-home'></i></span>Yuan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/about/"><i class='fas fa-graduation-cap'></i> About me </a><a class="menu-item" href="/posts/"><i class='fas fa-book'></i> Posts </a><a class="menu-item" href="/categories/"><i class='fas fa-sticky-note'></i> Categories </a><a class="menu-item" href="/categories/pictures/"><i class='fas fa-camera'></i> Pictures </a><a class="menu-item" href="/tags"><i class='fas fa-tag'></i> Tags </a><a class="menu-item" href="https://github.com/youeny/youeny.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="YY&#39;s homepage"><span class="header-title-pre"><i class='fas fa-home'></i></span>Yuan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/about/" title=""><i class='fas fa-graduation-cap'></i>About me</a><a class="menu-item" href="/posts/" title=""><i class='fas fa-book'></i>Posts</a><a class="menu-item" href="/categories/" title=""><i class='fas fa-sticky-note'></i>Categories</a><a class="menu-item" href="/categories/pictures/" title=""><i class='fas fa-camera'></i>Pictures</a><a class="menu-item" href="/tags" title=""><i class='fas fa-tag'></i>Tags</a><a class="menu-item" href="https://github.com/youeny/youeny.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">What is the RNA-seq analysis?</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yao</a></span>&nbsp;<span class="post-category">included in <a href="/categories/rna-seq-data-analysis/"><i class="far fa-folder fa-fw"></i>RNA-seq data analysis</a>&nbsp;<a href="/categories/ribo-seq-analysis/"><i class="far fa-folder fa-fw"></i>Ribo-seq analysis</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-16">2022-05-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;965 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;<span id="/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" class="leancloud_visitors" data-flag-title="What is the RNA-seq analysis?">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overall-description-of-rna-seq">Overall description of RNA-Seq</a>
+      <ul>
+        <li><a href="#1-rna-extraction">1. RNA extraction</a></li>
+        <li><a href="#2-library-preparation">2. Library preparation</a>
+          <ul>
+            <li><a href="#21-polya-selection">2.1 Poly(A) selection</a></li>
+            <li><a href="#22-rrna-depletion">2.2 rRNA depletion</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-sequencing">3. Sequencing</a></li>
+        <li><a href="#4-rna-seq-data-analysis">4. RNA-seq data analysis</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="overall-description-of-rna-seq">Overall description of RNA-Seq</h2>
+<p>The transcriptome has a high degree of complexity including multiple types of coding and non-coding RNA species, like mRNA, pre-mRNA, microRNA, and long ncRNA. To understand how the expression of a gene affects translation to proteins, <strong>messenger RNA (mRNA)</strong> molecules were the most frequently studied RNA species. Besides coding RNA, noncoding RNA molecules also play significant roles in cellular functions: <strong>Ribosomal RNAs</strong> and <strong>transfer RNAs</strong> are involved in mRNA translation. <strong>Small nuclear RNA (snRNAs)</strong> are involved in splicing.  <strong>MicroRNA (miRNA)</strong> and <strong>piwi-interacting RNA (piRNA)</strong> regulate gene expression at the posttranscriptional level&hellip;</p>
+<p>The development of high-throughput next-generation sequencing (NGS) has revolutionized transcriptomics by enabling RNA analysis through the sequencing of complementary DNA (cDNA). This method is termed RNA sequencing (RNA-Seq).</p>
+<p>Understanding the Pandora box of the transcriptome is the key to connecting the information in our genome with its functional protein expression. RNA-seq analysis allows us to understand which genes are turned up/down in a cell/tissue, what their level of transcription is, and such changes-indicated diseases.</p>
+<p>RNA-Seq can be applied to investigate different populations of RNA, including total RNA, pre-mRNA, and noncoding RNA, such as microRNA and long ncRNA.</p>
+<p>An RNA-seq workflow has several steps, which can be summarized as:</p>
+<ol>
+<li>
+<p>RNA extraction</p>
+</li>
+<li>
+<p>Reverse transcription into cDNA (cDNA library preparation)</p>
+</li>
+<li>
+<p>Adapted ligation</p>
+</li>
+<li>
+<p>Amplification</p>
+</li>
+<li>
+<p>Sequencing</p>
+</li>
+</ol>
+<h3 id="1-rna-extraction">1. RNA extraction</h3>
+<p>Overview of RNA-seq (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4863231/" target="_blank" rel="noopener noreffer">Kimberly.KR et al.,<em>Cold Spring Harb Protoc.</em> 2015 </a>)</p>
+<img src="https://s2.loli.net/2022/05/17/LDMnXhx8koCAy3p.jpg" style="zoom:80%;" />
+<p>The first step in transcriptome sequencing is the isolation of RNA from a biological sample as the above figure shows. To ensure a trustable RNA-seq experiment, the RNA needs to have sufficient quality to produce a library for sequencing.</p>
+<p>Certain forms of contamination can be detected using UV spectroscopy and the calculation of absorbance ratios. Good quality RNA will have an A260/280 ratio of 1.7 to 2.1 and A260/230 of 2.0 to 2.2. A260/280 lower than 1.7 may indicate protein contamination, whereas A260/230 less than 1.8 may indicate the presence of organics (e.g. phenol or guanidine) leftover from the extraction protocol. Such contaminants may interfere with library preparation.</p>
+<p>The measurement of RNA quality was usually performed by Agilent bioanalyzer: <strong>RNA Integrity Number (RIN)</strong>.</p>
+<p><strong>RIN assigns an electropherogram a value of 1 to 10, with 10 being the least degraded, the best quality.</strong> RIN represents the ratios of 28S to 18S ribosomal bands. The figure below shows the ideal fluorescence-length graph of <strong>RIN 10</strong>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/17/cuLpQjKeX4vWTDs.png"
+        data-srcset="https://s2.loli.net/2022/05/17/cuLpQjKeX4vWTDs.png, https://s2.loli.net/2022/05/17/cuLpQjKeX4vWTDs.png 1.5x, https://s2.loli.net/2022/05/17/cuLpQjKeX4vWTDs.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/17/cuLpQjKeX4vWTDs.png"
+        title="https://s2.loli.net/2022/05/17/cuLpQjKeX4vWTDs.png" /></p>
+<div class="details admonition info">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">The total RNA ratio is calculated by taking the ratio of the area under the 18S and 28S rRNA peaks to the total area under the graph, a large number here is desired, indicating much of the rRNA is still at these sizes and thus little to no degradation has occurred. An ideal ratio can be seen in the above figure, where almost all of the RNA is in the 18S and 28S RNA peaks. A small marker height is desired, indicating only small amounts of RNA have been degraded and proceeded to the smallest lengths. If marker &gt; 18S or 28S, meaning RNA has been greatly degraded.</div>
+        </div>
+    </div>
+<p>Here is the sample RIN quality control graph. Most of the RINs are around 9, which means good quality of RNA.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/17/9rvaUBdRm5HycjC.png"
+        data-srcset="https://s2.loli.net/2022/05/17/9rvaUBdRm5HycjC.png, https://s2.loli.net/2022/05/17/9rvaUBdRm5HycjC.png 1.5x, https://s2.loli.net/2022/05/17/9rvaUBdRm5HycjC.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/17/9rvaUBdRm5HycjC.png"
+        title="https://s2.loli.net/2022/05/17/9rvaUBdRm5HycjC.png" /></p>
+<h3 id="2-library-preparation">2. Library preparation</h3>
+<p>In the next step, we need to choose an appropriate library preparation protocol&mdash;&mdash;&mdash;-<strong>select RNA species!</strong></p>
+<p>For eukaryotic systems, researchers have a choice between poly(A) selection or rRNA depletion for enriching non-ribosomal RNA during library preparation. Prokaryotes require rRNA depletion methods as their mRNA is not polyadenylated. The decision tree in Figure 10 can help guide the selection of an enrichment method. <a href="https://web.genewiz.com/hubfs/NGS/RNA-Seq/RNA-Seq%20eBook/NGS_RNA-Seq_eBook_US_Jul27_2020.pdf" target="_blank" rel="noopener noreffer">Reference</a></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/17/NTY19W5PXnDiZAH.png"
+        data-srcset="https://s2.loli.net/2022/05/17/NTY19W5PXnDiZAH.png, https://s2.loli.net/2022/05/17/NTY19W5PXnDiZAH.png 1.5x, https://s2.loli.net/2022/05/17/NTY19W5PXnDiZAH.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/17/NTY19W5PXnDiZAH.png"
+        title="https://s2.loli.net/2022/05/17/NTY19W5PXnDiZAH.png" /></p>
+<p>Basically, if the rRNA transcripts are not removed before library construction, they will consume the bulk of the sequencing reads, thus limiting the detection of DEGs.</p>
+<h4 id="21-polya-selection">2.1 Poly(A) selection</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/18/hiy9HF2RVEJ8k6o.png"
+        data-srcset="https://s2.loli.net/2022/05/18/hiy9HF2RVEJ8k6o.png, https://s2.loli.net/2022/05/18/hiy9HF2RVEJ8k6o.png 1.5x, https://s2.loli.net/2022/05/18/hiy9HF2RVEJ8k6o.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/18/hiy9HF2RVEJ8k6o.png"
+        title="https://s2.loli.net/2022/05/18/hiy9HF2RVEJ8k6o.png" /></p>
+<p>In a eukaryotic cell, 80% of the total RNAs are <strong>ribosomal RNA (rRNA)</strong>, whereas the other 5% is <strong>polyadenylated positive (poly(A)+ ) mRNA</strong>. Poly(A) selection is the most common method for library preparation to provide efficient enrichment of poly(A) + transcripts including mRNAs and many non-coding RNAs, and also reduces the amounts of pre-mRNAs. In this approach, the 3′ poly-A tail of mRNA molecules is targeted using poly-T oligos that are covalently attached to a given substrate (e.g., magnetic beads).</p>
+<h4 id="22-rrna-depletion">2.2 rRNA depletion</h4>
+<p>rRNA-depleted removes cytoplasmic and mitochondrial rRNA and thus includes poly(A) + mRNA, as well as non-coding RNAs or protein-coding mRNAs that are not polyadenylated. In eukaryotes, this technique allows researchers to study both coding and non-coding transcripts.</p>
+<p>In a previous study, the researchers showed that rRNA depletion captured more unique transcriptome features, whereas polyA+ selection outperformed rRNA depletion with higher exonic coverage and better accuracy of gene quantification. <a href="https://www.nature.com/articles/s41598-018-23226-4#Sec1" target="_blank" rel="noopener noreffer">Reference</a></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/18/aC7RhH3AQT19XkS.png"
+        data-srcset="https://s2.loli.net/2022/05/18/aC7RhH3AQT19XkS.png, https://s2.loli.net/2022/05/18/aC7RhH3AQT19XkS.png 1.5x, https://s2.loli.net/2022/05/18/aC7RhH3AQT19XkS.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/18/aC7RhH3AQT19XkS.png"
+        title="https://s2.loli.net/2022/05/18/aC7RhH3AQT19XkS.png" /></p>
+<h3 id="3-sequencing">3. Sequencing</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/19/bYvAC8VoNaIk1EB.jpg"
+        data-srcset="https://s2.loli.net/2022/05/19/bYvAC8VoNaIk1EB.jpg, https://s2.loli.net/2022/05/19/bYvAC8VoNaIk1EB.jpg 1.5x, https://s2.loli.net/2022/05/19/bYvAC8VoNaIk1EB.jpg 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/19/bYvAC8VoNaIk1EB.jpg"
+        title="https://s2.loli.net/2022/05/19/bYvAC8VoNaIk1EB.jpg" /></p>
+<p>In RNA-seq sequencing, there are paired-end sequencing and single-end sequencing.</p>
+<p>Paired-end sequencing is usually recommended for most applications as it provides richer data and permits longer library insert sizes. Paired-end sequencing allows us to sequence both ends of a fragment and generate high-quality, alignable sequence data.</p>
+<p>For a single-read run, one Read 1 (R1) FASTQ file is created for each sample per flow cell lane. For a paired-end run, one R1 and one Read 2 (R2) FASTQ file is created for each sample for each lane. FASTQ files are compressed and created with the extension *<em>.fastq.gz.</em></p>
+<p>Currently, the Illumina HiSeq platform is the most commonly applied next-generation sequencing technology for RNA-Seq and has set the standard for NGS sequencing. The platform has two flow cells, each providing eight separate lanes for sequencing reactions to occur.</p>
+<p>Normally, we will get 8 read files (.fastq) for one sample. Each sample run in 4 separate lanes with paired-end:</p>
+<p>XXX_L001_R1_001.fastq</p>
+<p>XXX_L002_R1_001.fastq</p>
+<p>XXX_L003_R1_001.fastq</p>
+<p>XXX_L004_R1_001.fastq</p>
+<p>XXX_L001_R2_001.fastq</p>
+<p>XXX_L002_R2_001.fastq</p>
+<p>XXX_L003_R2_001.fastq</p>
+<p>XXX_L004_R2_001.fastq</p>
+<p>So, we need to <code>cat</code>the files together into one.</p>
+<h3 id="4-rna-seq-data-analysis">4. RNA-seq data analysis</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/19/IxYKP2uh3QFA7eC.png"
+        data-srcset="https://s2.loli.net/2022/05/19/IxYKP2uh3QFA7eC.png, https://s2.loli.net/2022/05/19/IxYKP2uh3QFA7eC.png 1.5x, https://s2.loli.net/2022/05/19/IxYKP2uh3QFA7eC.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/19/IxYKP2uh3QFA7eC.png"
+        title="https://s2.loli.net/2022/05/19/IxYKP2uh3QFA7eC.png" /></p>
+<p>My RNA-seq analysis workflow is based on this figure. For more information, please refer to my other articles.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-05-16</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2022-05-16-what-is-the-rna-seqribo-seq-analysis/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" data-title="What is the RNA-seq analysis?" data-via="xxxx" data-hashtags="RNA-seq data analysis,Ribo-seq analysis"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" data-hashtag="RNA-seq data analysis"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" data-title="What is the RNA-seq analysis?"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" data-title="What is the RNA-seq analysis?"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://youeny.github.io/2022-05-16-what-is-the-rna-seqribo-seq-analysis/" data-title="What is the RNA-seq analysis?"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/rna-seq-data-analysis/">RNA-seq data analysis</a>,&nbsp;<a href="/tags/ribo-seq-analysis/">Ribo-seq analysis</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/the-basic-principle-of-deseq2/" class="prev" rel="prev" title="The basic principle of DESeq2"><i class="fas fa-angle-left fa-fw"></i>The basic principle of DESeq2</a>
+            <a href="/2022-05-17-drawing-volcano-plot/" class="next" rel="next" title="Drawing Volcano plot (1)">Drawing Volcano plot (1)<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container">
+            <div class="footer-line">
+                <span id="run-time"></span>
+            </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Yuan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

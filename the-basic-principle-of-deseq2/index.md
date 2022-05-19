@@ -1,4 +1,4 @@
-# The basic principle of DESeq2 (1)
+# The basic principle of DESeq2
 
 
 ## How DESeq2 calculate DEGs?
@@ -84,6 +84,6 @@ Normalized Counts
 
 The **median** further downplays genes that soak up a lot of the reads, putting more emphasis on moderately expressed genes.
 
-
+So, normalization before DESeq2 analysis is **not necessary!**
 
 
